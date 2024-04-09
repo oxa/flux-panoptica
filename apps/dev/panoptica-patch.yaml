@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: panoptica
+spec:
+  chart:
+    spec:
+      version: 1.2.4
+    values:
+      global:
+        panopticaIntegration:
+          id: fdddf398-210a-4919-ae85-cd1bfa776124
+          kspm:
+            enabled: true
+          apiSecurity:
+            enabled: true
+          cdr:
+            enabled: false
+        mgmtHostname: "portshift.panoptica.app"
+        sharedSecret: ZnrsYVmk65iurArdoPLbkNlJ6QUVV+xhZRMOptoWvyg=
+        accessKey: d0b4b515-bf2d-42ae-90e9-f67340525eb5
+      kubernetes-integration-deployment-controller:
+        api:
+          url: "us1.deploymentmanager.panoptica.app"
+        secret:
+          token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGgua2lzLnBhbm9wdGljYS5pbyIsInN1YiI6ImFkYzpmZGRkZjM5OC0yMTBhLTQ5MTktYWU4NS1jZDFiZmE3NzYxMjQiLCJhdWQiOlsiL2ludGVncmF0aW9ucy9mZGRkZjM5OC0yMTBhLTQ5MTktYWU4NS1jZDFiZmE3NzYxMjQiLCIvcmVsZWFzZXMiXSwic2NwIjpbImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9ucy5kZXBsb3ltZW50Om1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLmludGVncmF0aW9uczpyZWFkIiwiaWFtLmdsb2JhbC5wYW5vcHRpY2EuazhzY2x1c3RlcnNlcnZpY2UuaW50ZWdyYXRpb25zOm1hbmFnZSIsImlhbS5nbG9iYWwucGFub3B0aWNhLms4c2NsdXN0ZXJzZXJ2aWNlLnJlbGVhc2VzOnJlYWQiXSwidGVuYW50IjoiNGQ4MjBmYTAtMzJjMC00OGE1LTllOWMtNTFhNjRkYjUyOWU4In0.miimidTy3SHCcDINrdV15NCrdjuZx7C6yAuPmIVaTPUa31BOzn0pLVRLgLcxHIMqp3GN5xlu3yd9rtOLP9-nEw
+        syncIntegrationJob:
+          api:
+            url: "us1.k8s-integration.panoptica.app"
+      k8sec-controller:
+        controller:
+          secret:
+            sharedSecret: vTzhM64Uwya9KTqu1Eqp4a1nI4zPGcljJCt2eAfmkVk=
+          agentID: a990fa0f-b4cd-42d6-b035-b581a2fd203a
