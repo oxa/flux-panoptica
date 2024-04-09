@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: panoptica
-  namespace: flux-system
+  namespace: panoptica
 spec:
   type: oci
   interval: 5m0s
